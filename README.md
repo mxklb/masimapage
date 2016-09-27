@@ -4,9 +4,9 @@ This is the source of the static landing page [masima.rocks](http://masima.rocks
 For development workflow gulp, sass and browser-sync is used. Rapid deployment to gh-pages can easily be achived manually by using gulp or automated with the [travis ci](https://travis-ci.org). Local development and testing is mostly automated as well as staging.
 
 # Devel Dependencies
-[![Build Status](https://travis-ci.org/codeSessionsP2/masimapage.svg?branch=master)](https://travis-ci.org/codeSessionsP2/masimapage) 
-[![Dependency Status](https://david-dm.org/codeSessionsP2/masimapage.svg)](https://david-dm.org/codeSessionsP2/masimapage) 
-[![devDependency Status](https://david-dm.org/codeSessionsP2/masimapage/dev-status.svg)](https://david-dm.org/codeSessionsP2/masimapage#info=devDependencies)
+[![devDependency Status](https://david-dm.org/codeSessionsP2/masimapage/dev-status.svg)](https://david-dm.org/codeSessionsP2/masimapage?type=dev)
+[![Build Status](https://travis-ci.org/codeSessionsP2/masimapage.svg?branch=master)](https://travis-ci.org/codeSessionsP2/masimapage)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 `npm >= 3.4.0`, for installation instructions have a look at [node.js](https://nodejs.org/en/download/)
 
