@@ -1,18 +1,19 @@
 @mixin hrGradient {
-	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,1.0), rgba(0,0,0,0));
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,1.0), rgba(0,0,0,0));
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,1.0), rgba(0,0,0,0));
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,1.0), rgba(0,0,0,0));
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0));
+  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0));
 }
 
 @mixin blurHelper( $blur_webkit, $blur_firefox) {
-	  -webkit-filter: blur($blur_webkit);  
-  	filter: blur($blur_firefox);
+  -webkit-filter: blur($blur_webkit);
+  filter: blur($blur_firefox);
 }
 
 @mixin backface-visibility($visibility) {
-	  -webkit-backface-visibility: $visibility; /* Chrome, Safari, Opera */
-    backface-visibility: $visibility;
+  -webkit-backface-visibility: $visibility;
+  /* Chrome, Safari, Opera */
+  backface-visibility: $visibility;
 }
 
 @mixin webkitReset {
@@ -30,19 +31,13 @@
   background-size: contain;
 }
 
-@mixin font-face(
-  $name, 
-  $font-files, 
-  $eot: false,
-  $weight: false,
-  $style: false
-) {
+@mixin font-face( $name, $font-files, $eot: false, $weight: false, $style: false) {
   $iefont: unquote("#{$eot}?#iefix");
   @font-face {
     font-family: quote($name);
     @if $eot {
       src: font-url($eot);
-      $font-files: font-url($iefont) unquote("format('eot')"), $font-files; 
+      $font-files: font-url($iefont) unquote("format('eot')"), $font-files;
     }
     src: $font-files;
     @if $weight {
@@ -55,89 +50,95 @@
 }
 
 @mixin animation($animate...) {
-    $max: length($animate);
-    $animations: '';
-
-    @for $i from 1 through $max {
-        $animations: #{$animations + nth($animate, $i)};
-
-        @if $i < $max {
-            $animations: #{$animations + ", "};
-        }
+  $max: length($animate);
+  $animations: '';
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+    @if $i < $max {
+      $animations: #{$animations + ", "};
     }
-    -webkit-animation: $animations;
-    -moz-animation:    $animations;
-    -o-animation:      $animations;
-    animation:         $animations;
+  }
+  -webkit-animation: $animations;
+  -moz-animation : $animations;
+  -o-animation : $animations;
+  animation : $animations;
 }
 
 @mixin animation-delay($delay) {
   -webkit-animation-delay: $delay;
   -moz-animation-delay: $delay;
-	-ms-animation-delay: $delay;
-	-o-animation-delay: $delay;
+  -ms-animation-delay: $delay;
+  -o-animation-delay: $delay;
   animation-delay: $delay;
 }
 
 @mixin transform($transforms) {
-	   -moz-transform: $transforms;
-	     -o-transform: $transforms;
-	    -ms-transform: $transforms;
-	-webkit-transform: $transforms;
-          transform: $transforms;
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
 }
 
 @mixin transform-style($transforms) {
-	   -moz-transform-style: $transforms;
-	     -o-transform-style: $transforms;
-	    -ms-transform-style: $transforms;
-	-webkit-transform-style: $transforms;
-          transform-style: $transforms;
+  -moz-transform-style: $transforms;
+  -o-transform-style: $transforms;
+  -ms-transform-style: $transforms;
+  -webkit-transform-style: $transforms;
+  transform-style: $transforms;
 }
 
 @mixin keyframes($animationName) {
-    @-webkit-keyframes #{$animationName} {
-        @content;
-    }
-    @-moz-keyframes #{$animationName} {
-        @content;
-    }
-    @-o-keyframes #{$animationName} {
-        @content;
-    }
-    @keyframes #{$animationName} {
-        @content;
-    }
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
 }
 
 @mixin linear-gradient($angle, $color-stops...) {
   $_angle-with-vendor-prefix: "";
   $_angle: "";
-  @if $angle == "to top" or $angle == "bottom" {
+  @if $angle=="to top" or $angle=="bottom" {
     $_angle-with-vendor-prefix: bottom;
     $_angle: to top;
-  } @else if $angle == "to right" or $angle == "left" {
+  }
+  @else if $angle=="to right" or $angle=="left" {
     $_angle-with-vendor-prefix: left;
     $_angle: to right;
-  } @else if $angle == "to bottom" or $angle == "top" {
+  }
+  @else if $angle=="to bottom" or $angle=="top" {
     $_angle-with-vendor-prefix: top;
     $_angle: to bottom;
-  } @else if $angle == "to left" or $angle == "right" {
+  }
+  @else if $angle=="to left" or $angle=="right" {
     $_angle-with-vendor-prefix: right;
     $_angle: to left;
-  } @else if $angle == "to top right" or $angle == "bottom left" {
+  }
+  @else if $angle=="to top right" or $angle=="bottom left" {
     $_angle-with-vendor-prefix: bottom left;
     $_angle: to top right;
-  } @else if $angle == "to bottom right" or $angle == "top left" {
+  }
+  @else if $angle=="to bottom right" or $angle=="top left" {
     $_angle-with-vendor-prefix: top left;
     $_angle: to bottom right;
-  } @else if $angle == "to bottom left" or $angle == "top right" {
+  }
+  @else if $angle=="to bottom left" or $angle=="top right" {
     $_angle-with-vendor-prefix: top right;
     $_angle: to bottom left;
-  } @else if $angle == "to top left" or $angle == "bottom right" {
+  }
+  @else if $angle=="to top left" or $angle=="bottom right" {
     $_angle-with-vendor-prefix: bottom right;
     $_angle: to top left;
-  } @else {
+  }
+  @else {
     $_angle-with-vendor-prefix: $angle % 360;
     $_angle: (90 - $angle) % 360;
   }

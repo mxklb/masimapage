@@ -1,7 +1,8 @@
 {
   "name": "masima-rocks",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "the masima landing-page",
+  "sasslintConfig": "src/scss/.sass-lint.yml",
   "main": "gulpfile.js",
   "devDependencies": {
     "browser-sync": "^2.13.0",
@@ -17,7 +18,9 @@
     "gulp-sass": "^2.3.1",
     "gulp-uglify": "^2.0.0",
     "node-neat": "^1.7.2",
-    "simple-git": "^1.38.0"
+    "sass-lint": "^1.9.1",
+    "simple-git": "^1.38.0",
+    "standard": "^8.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
